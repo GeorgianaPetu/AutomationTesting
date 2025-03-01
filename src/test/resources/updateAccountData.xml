@@ -1,0 +1,21 @@
+<dataSets>
+    <dataSet_1>
+        <prenume>Anca</prenume>
+        <nume>Popescu</nume>
+        <email>georgiana.petu@gmail.com</email>
+        <telefon>0721445772</telefon>
+        <judetSector>Brasov</judetSector>
+        <oras>Bradeanca</oras>
+        <adresa>Strada Lacului nr3</adresa>
+    </dataSet_1>
+
+    <dataSet_2>
+        <prenume>Georgiana</prenume>
+        <nume>Petu</nume>
+        <email>georgiana.petu@gmail.com</email>
+        <telefon>0744444444</telefon>
+        <judetSector>Ilfov</judetSector>
+        <oras>Voluntari</oras>
+        <adresa>Strada Garii nr5</adresa>
+    </dataSet_2>
+</dataSets>

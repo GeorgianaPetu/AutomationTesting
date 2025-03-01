@@ -1,0 +1,7 @@
+<suite name="Suite Metode Paralele" parallel="classes" thread-count="4">
+    <test name="Test 1">
+        <packages>
+            <package name="ProiectOOP.Tests.*" />
+        </packages>
+    </test>
+</suite>

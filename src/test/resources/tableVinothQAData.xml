@@ -1,0 +1,17 @@
+<dataSets>
+    <dataSet_1>
+        <name>Anca Popescu</name>
+        <role>Business Analyst</role>
+        <email>anca.popescu@gmail.com</email>
+        <location>Galati</location>
+        <department>Analysis</department>
+    </dataSet_1>
+
+    <dataSet_2>
+        <name>Maria Diaconescu</name>
+        <role>Project Manager</role>
+        <email>maria.diaconescu@gmail.com</email>
+        <location>Brasov</location>
+        <department>Management</department>
+    </dataSet_2>
+</dataSets>
