@@ -14,7 +14,7 @@ public class TableVinothQA {
     WebDriver driver;
 
     @Test
-
+    //metoda Test
     public void metodaTest() {
         driver = new ChromeDriver();
         driver.get("https://vinothqaacademy.com/webtable/");
