@@ -1,26 +1,28 @@
 package ProiectOOP.ShareDataBrowser;
 
+import Logger.LoggerUtility;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
 public class HooksTableQA extends ShareDataTableQA {
     String testName;
     @BeforeMethod
     public void prepareEnvironment() {
-        //testName = this.getClass().getSimpleName();
+        testName = this.getClass().getSimpleName();
         initializeBrowser();
-        //LoggerUtility.startTestCases(testName);
+        LoggerUtility.startTestCase(testName);
     }
     @AfterMethod
     public void clearEnvironment(/*ITestResult result*/) {
         clearBrowser();
-        /*if(result.getStatus() == ITestResult.FAILURE){
-            LoggerUtility.errorLog(result.getThrowable().getMessage());
-        }
-        LoggerUtility.endTestCase(testName); */
+//        if(result.getStatus() == ITestResult.FAILURE){
+//            LoggerUtility.errorLog(result.getThrowable().getMessage());
+//        }
+        LoggerUtility.endTestCase(testName);
     }
-    /*@AfterSuite
+    @AfterSuite
     public void finishLogs(){
         LoggerUtility.mergeFilesIntoOne();
-    } */
+    }
 }

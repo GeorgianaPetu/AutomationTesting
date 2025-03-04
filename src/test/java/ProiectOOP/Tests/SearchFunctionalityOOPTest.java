@@ -1,4 +1,5 @@
 package ProiectOOP.Tests;
+import Logger.LoggerUtility;
 import ObjectData.LoginObjectData;
 import ObjectData.SearchFunctionalityObjectData;
 import ProiectOOP.Pages.CautareAvansata;
@@ -14,7 +15,7 @@ import java.util.Map;
 public class SearchFunctionalityOOPTest extends Hooks /*ShareData*/ {
     Login login;
     Search search;
-    CautareAvansata cautareAvansata;
+    //CautareAvansata cautareAvansata;
     private Map<String, LoginObjectData> loginObjectDataMap;
     private Map<String, SearchFunctionalityObjectData> searchFunctionalityObjectDataMap;
 
@@ -24,10 +25,12 @@ public class SearchFunctionalityOOPTest extends Hooks /*ShareData*/ {
         login = new Login(getDriver());
         LoginObjectData dataL = loginObjectDataMap.get("dataSet_1");
         login.metodaLogin(dataL);
+        LoggerUtility.infoTest("The user logs in");
         searchFunctionalityObjectDataMap = xmlReader.loadData("src/test/resources/searchFunctionalityData.xml", SearchFunctionalityObjectData.class);
         search = new Search(getDriver());
         SearchFunctionalityObjectData data = searchFunctionalityObjectDataMap.get("dataSet_A");
         search.metodaSearch(data);
+        LoggerUtility.infoTest("The user clicks on search");
         //Assert
         Assert.assertTrue(search.searchResult1Text.contains(data.getSearchedBook1()));
         //Assert.assertEquals();

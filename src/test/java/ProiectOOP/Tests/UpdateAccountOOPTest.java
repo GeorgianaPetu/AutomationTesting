@@ -1,4 +1,5 @@
 package ProiectOOP.Tests;
+import Logger.LoggerUtility;
 import ObjectData.LoginObjectData;
 import ObjectData.UpdateAccountObjectData;
 import ProiectOOP.HelperMethods.Delay;
@@ -24,10 +25,12 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
         login = new Login(getDriver());
         LoginObjectData dataL = loginObjectDataMap.get("dataSet_1");
         login.metodaLogin(dataL);
+        LoggerUtility.infoTest("The user logs in");
         /*data driven t*/ updateAccountObjectDataMap = xmlReader.loadData("src/test/resources/updateAccountData.xml", UpdateAccountObjectData.class);
         modificareDate = new ModificareDate(getDriver());
         UpdateAccountObjectData data = updateAccountObjectDataMap.get("dataSet_1");
         modificareDate.metodaModificareDate(data);
+        LoggerUtility.infoTest("The user updates information");
         //assert
         Assert.assertTrue(modificareDate.outputUsernameText.contains(data.getNume() + " " + data.getPrenume()));
         Assert.assertTrue(modificareDate.outputEmailText.contains(data.getEmail()));
@@ -37,6 +40,7 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
         delay.metodaDelaySec(2);
         UpdateAccountObjectData data2 = updateAccountObjectDataMap.get("dataSet_2");
         modificareDate.metodaModificareDate(data2);
+        LoggerUtility.infoTest("The user updates information to the initial ones");
         //assert
         Assert.assertTrue(modificareDate.outputUsernameText.contains(data2.getNume() + " " + data2.getPrenume()));
         Assert.assertTrue(modificareDate.outputEmailText.contains(data2.getEmail()));
