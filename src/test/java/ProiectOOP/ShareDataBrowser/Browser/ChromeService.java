@@ -15,10 +15,19 @@ public class ChromeService implements BrowserServiceInterface {
 
     @Override
     public Object browserOptions() {
+        //sesiune 25
+        String ci_cd = System.getProperty("ci_cd");
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--window-size=1366,768");
+
+        //sesiune 25 2:00:00
+        if (Boolean.parseBoolean(ci_cd)){
+            options.addArguments("--headless");
+        }
+
         return options;
     }
 
