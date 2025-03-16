@@ -3,6 +3,7 @@ package ProiectOOP.Pages;
 import ObjectData.UpdateAccountObjectData;
 import ProiectOOP.HelperMethods.Delay;
 import ProiectOOP.HelperMethods.ElementsMethods;
+import ProiectOOP.HelperMethods.ScrollMethod;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class ModificareDate {
     WebDriver driver;
     ElementsMethods elementsMethods;
+    ScrollMethod scrollMethod;
     Delay delay;
     String prenume;
     String nume;
@@ -64,6 +66,7 @@ public class ModificareDate {
     public ModificareDate(WebDriver driver){
         this.driver = driver;
         this.elementsMethods = new ElementsMethods(driver);
+        this.scrollMethod = new ScrollMethod(driver);
         this.prenume = prenume;
         this.nume = nume;
         this.email = email;
@@ -97,29 +100,36 @@ public class ModificareDate {
         this.email = data.getEmail();
         this.telefon = data.getTelefon();
         delay.metodaDelaySec(2);
+        elementsMethods.assertElementDisplayed(modificaButton);
         elementsMethods.clickOnElement(modificaButton);
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
-        javascriptExecutor.executeScript("window.scrollTo(0, 500)");
+        scrollMethod.metodaScroll(500);
         prenumeField.clear();
         elementsMethods.fillElement(prenumeField, data.getPrenume());
         delay.metodaDelaySec(1);
+        elementsMethods.assertElementDisplayed(numeField);
         numeField.clear();
         elementsMethods.fillElement(numeField, data.getNume());
         delay.metodaDelaySec(1);
+        elementsMethods.assertElementDisplayed(telefonField);
         telefonField.clear();
         elementsMethods.fillElement(telefonField, data.getTelefon());
         delay.metodaDelaySec(1);
+        elementsMethods.assertElementDisplayed(judetSectorField);
         elementsMethods.fillElement(judetSectorField, data.getJudetSector());
         delay.metodaDelaySec(3);
         judetSectorField.sendKeys(Keys.ENTER);
         delay.metodaDelaySec(2);
+        elementsMethods.assertElementDisplayed(orasField);
         elementsMethods.fillElement(orasField, data.getOras());
         delay.metodaDelaySec(5);
         orasField.sendKeys(Keys.ENTER);
         delay.metodaDelaySec(2);
+        elementsMethods.assertElementDisplayed(adresaField);
         adresaField.clear();
         elementsMethods.fillElement(adresaField, data.getAdresa());
         delay.metodaDelaySec(2);
+        elementsMethods.assertElementDisplayed(trimiteButton);
+
         elementsMethods.clickOnElement(trimiteButton);
         delay.metodaDelaySec(2);
 

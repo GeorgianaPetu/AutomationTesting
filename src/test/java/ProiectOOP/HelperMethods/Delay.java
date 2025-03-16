@@ -16,7 +16,6 @@ public class Delay {
     }
 
     public void metodaDelaySec(int secunde) {
-        //Delay 1 secunda
         try {
             TimeUnit.SECONDS.sleep(secunde);
         } catch (InterruptedException ie) {

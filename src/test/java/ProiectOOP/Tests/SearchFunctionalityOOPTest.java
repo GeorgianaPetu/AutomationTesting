@@ -2,7 +2,6 @@ package ProiectOOP.Tests;
 import Logger.LoggerUtility;
 import ObjectData.LoginObjectData;
 import ObjectData.SearchFunctionalityObjectData;
-import ProiectOOP.Pages.CautareAvansata;
 import ProiectOOP.Pages.Login;
 import ProiectOOP.Pages.Search;
 import ProiectOOP.ShareDataBrowser.Hooks;

@@ -81,6 +81,13 @@ public class AddRow {
     }
 
     public void metodaAddRow(TableVinothQAObjectData data) {
+        elementsMethods.assertElementDisplayed(numeField);
+        elementsMethods.assertElementDisplayed(roleField);
+        elementsMethods.assertElementDisplayed(emailField);
+        elementsMethods.assertElementDisplayed(locationField);
+        elementsMethods.assertElementDisplayed(departmentField);
+        elementsMethods.assertElementDisplayed(addRowButton);
+
         elementsMethods.fillElement(numeField, data.getName());
         elementsMethods.fillElement(roleField, data.getRole());
         elementsMethods.fillElement(emailField, data.getEmail());

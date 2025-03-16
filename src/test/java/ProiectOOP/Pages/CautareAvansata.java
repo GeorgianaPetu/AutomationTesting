@@ -1,4 +1,4 @@
-package ProiectOOP.Pages;
+/*package ProiectOOP.Pages;
 
 import ProiectOOP.HelperMethods.Delay;
 import ProiectOOP.HelperMethods.ElementsMethods;
@@ -51,3 +51,5 @@ public class CautareAvansata {
         elementsMethods.clickOnElement(searchButton);
     }
 }
+
+ */

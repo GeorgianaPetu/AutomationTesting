@@ -3,6 +3,7 @@ package ProiectOOP.Pages;
 import ObjectData.SearchFunctionalityObjectData;
 import ProiectOOP.HelperMethods.Delay;
 import ProiectOOP.HelperMethods.ElementsMethods;
+import ProiectOOP.HelperMethods.ScrollMethod;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Search extends CommonMenu{
     ElementsMethods elementsMethods;
     Delay delay;
+    ScrollMethod scrollMethod;
     String cuvant;
     String searchedBook1;
     String searchedBook2;
@@ -66,6 +68,7 @@ public class Search extends CommonMenu{
     public Search(WebDriver driver) {
         super(driver);
         this.elementsMethods = new ElementsMethods(driver);
+        this.scrollMethod = new ScrollMethod(driver);
         this.commonMenu = new CommonMenu(driver);
         this.cuvant = cuvant;
         this.searchedBook1 = searchedBook1;
@@ -88,6 +91,8 @@ public class Search extends CommonMenu{
        this.searchedBook6 = data.getSearchedBook6();
        this.searchedBook7 = data.getSearchedBook7();
         delay.metodaDelaySec(2);
+        elementsMethods.assertElementDisplayed(searchBar);
+        elementsMethods.assertElementDisplayed(searchButton);
         clickAndFillSearchField(data.getCuvant());         //elementsMethods.clickOnElement(searchBar);//searchBar.sendKeys(cuvant);
         delay.metodaDelaySec(2);
         commonMenu.searchBar.sendKeys(Keys.ARROW_DOWN); // searchBar.sendKeys(Keys.ARROW_DOWN);
@@ -96,12 +101,11 @@ public class Search extends CommonMenu{
         elementsMethods.fillElement(sortareField, "Nume");
         sortareField.sendKeys(Keys.ENTER);
         elementsMethods.clickOnElement(afisareTipListaButton);
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
-        javascriptExecutor.executeScript("window.scrollTo(0, 1200)");
+        scrollMethod.metodaScroll(1200);
         //ASSERT
         WebElement searchResult1 = driver.findElement(By.xpath("//*[@class='product-name t-font-heading']//*[@title='Din lumea celor care nu cuvanta']"));
         searchResult1Text = searchResult1.getText();
-        javascriptExecutor.executeScript("window.scrollTo(0, -500)");
+        scrollMethod.metodaScroll(-500);
         WebElement searchResult2 = driver.findElement(By.xpath("//*[@class='product-name t-font-heading']//*[@title='Comoara din insula']"));
         searchResult2Text = searchResult2.getText();
         WebElement searchResult3 = driver.findElement(By.xpath("//*[@class='product-name t-font-heading']//*[@title='Ciuma stacojie']"));

@@ -25,6 +25,12 @@ public class ChangePasswordOOPTest extends Hooks /*ShareData*/ {
        /*data driven t*/ changePasswordObjectDataMap = xmlReader.loadData("src/test/resources/changePasswordData.xml", ChangePasswordObjectData.class);
         login = new Login(getDriver());
         LoginObjectData dataL = loginObjectDataMap.get("dataSet_1");
+
+        //unde adaug asta
+//        public void waitForPageLoad() {
+//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//            wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+//        }
         login.metodaLogin(dataL);
         LoggerUtility.infoTest("The user logs in");
         schimbareParola = new SchimbareParola(getDriver());

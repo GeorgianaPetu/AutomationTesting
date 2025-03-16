@@ -23,6 +23,7 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
     public void metodaTest() {
         /*data driven t*/ loginObjectDataMap = xmlReader.loadData("src/test/resources/loginData.xml", LoginObjectData.class);
         login = new Login(getDriver());
+        delay = new Delay(getDriver());
         LoginObjectData dataL = loginObjectDataMap.get("dataSet_1");
         login.metodaLogin(dataL);
         LoggerUtility.infoTest("The user logs in");
@@ -30,6 +31,7 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
         modificareDate = new ModificareDate(getDriver());
         UpdateAccountObjectData data = updateAccountObjectDataMap.get("dataSet_1");
         modificareDate.metodaModificareDate(data);
+        delay.metodaDelaySec(2);
         LoggerUtility.infoTest("The user updates information");
         //assert
         Assert.assertTrue(modificareDate.outputUsernameText.contains(data.getNume() + " " + data.getPrenume()));
