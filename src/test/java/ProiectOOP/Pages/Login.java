@@ -38,6 +38,7 @@ public class Login extends CommonMenu {
     }
 
     public void metodaLogin(LoginObjectData dataL) {
+        delay.metodaDelaySec(2);
         clickContulMeu();
         delay.metodaDelaySec(2);
         clickIntraInCont();
