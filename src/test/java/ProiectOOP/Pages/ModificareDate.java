@@ -103,6 +103,7 @@ public class ModificareDate {
         elementsMethods.assertElementDisplayed(modificaButton);
         elementsMethods.clickOnElement(modificaButton);
         scrollMethod.metodaScroll(500);
+        delay.metodaDelaySec(5);
         prenumeField.clear();
         elementsMethods.fillElement(prenumeField, data.getPrenume());
         delay.metodaDelaySec(1);

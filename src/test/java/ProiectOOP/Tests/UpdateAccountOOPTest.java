@@ -39,7 +39,7 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
         Assert.assertTrue(modificareDate.outputTelefonText.contains(data.getTelefon()));
         //SCHIMB DATELE CU CELE INITIALE
         delay = new Delay(getDriver());
-        delay.metodaDelaySec(2);
+        delay.metodaDelaySec(4);
         UpdateAccountObjectData data2 = updateAccountObjectDataMap.get("dataSet_2");
         modificareDate.metodaModificareDate(data2);
         LoggerUtility.infoTest("The user updates information to the initial ones");
