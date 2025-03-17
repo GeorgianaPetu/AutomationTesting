@@ -3,6 +3,7 @@ package ProiectOOP.Pages;
 import ObjectData.TableVinothQAObjectData;
 import ProiectOOP.HelperMethods.Delay;
 import ProiectOOP.HelperMethods.ElementsMethods;
+import dataBase.queries.TableVinothQA;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +24,7 @@ public class AddRow {
     String email;
     String location;
     String department;
+    TableVinothQA tableVinothQA;
     public String outputUsernameText;
     public String outputRoleText;
     public String outputEmailText;
@@ -48,7 +51,7 @@ public class AddRow {
     WebElement addRowButton;
 
 
-    public AddRow(WebDriver driver){
+    public AddRow(WebDriver driver) throws SQLException {
         this.driver = driver;
         this.elementsMethods = new ElementsMethods(driver);
         this.delay = new Delay(driver);
@@ -57,6 +60,7 @@ public class AddRow {
         this.email = email;
         this.location = location;
         this.department = department;
+        tableVinothQA = new TableVinothQA();
         PageFactory.initElements(driver, this); //astfel poate sa gaseasca elementele scrise de mine cu FindBy
     }
 
@@ -115,4 +119,9 @@ public class AddRow {
 //        Assert.assertTrue(outputLocation.getText().contains(location));
 //        Assert.assertTrue(outputDepartment.getText().contains(department));
     }
+
+    public void addEntryInTable(TableVinothQAObjectData data) throws SQLException {
+        tableVinothQA.insertTableObject(data);
+    }
+
 }

@@ -1,0 +1,9 @@
+<configuration>
+    <dataBaseConfig>
+        <port>3306</port>
+        <dataBase>TableVinothQA_database</dataBase>
+        <userName>root</userName>
+        <password>Test12345!</password>
+
+    </dataBaseConfig>
+</configuration>
