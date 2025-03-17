@@ -28,7 +28,8 @@ public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
         /*data driven t*/ tableVinothQAObjectDataMap = xmlReader.loadData("src/test/resources/tableVinothQAData.xml", TableVinothQAObjectData.class);
         addRow = new AddRow(getDriver());
         TableVinothQAObjectData data = tableVinothQAObjectDataMap.get("dataSet_1");
-        addRow.addEntryInTable(data);
+        //SQL
+        //addRow.addEntryInTable(data);
         addRow.metodaAddRow(data);
         ChainTestListener.log("User adds one entry using valid credentials");
         LoggerUtility.infoTest("User adds one entry using valid credentials");
@@ -40,7 +41,8 @@ public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
         Assert.assertTrue(addRow.outputDepartmentText.contains(data.getDepartment()));
 
         TableVinothQAObjectData data2 = tableVinothQAObjectDataMap.get("dataSet_2");
-        addRow.addEntryInTable(data2);
+        //SQL
+        //addRow.addEntryInTable(data2);
         addRow.metodaAddRow(data2);
         ChainTestListener.log("User adds the second entry using valid credentials");
         LoggerUtility.infoTest("User adds the second entry using valid credentials");
