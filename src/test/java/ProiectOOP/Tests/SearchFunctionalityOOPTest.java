@@ -5,6 +5,7 @@ import ObjectData.SearchFunctionalityObjectData;
 import ProiectOOP.Pages.Login;
 import ProiectOOP.Pages.Search;
 import ProiectOOP.ShareDataBrowser.Hooks;
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import xmlReaderUtility.xmlReader;
@@ -20,16 +21,19 @@ public class SearchFunctionalityOOPTest extends Hooks /*ShareData*/ {
 
     @Test
     public void metodaTest() {
+        ChainTestListener.log("Opened with Chrome");
         /*data driven t*/ loginObjectDataMap = xmlReader.loadData("src/test/resources/loginData.xml", LoginObjectData.class);
         login = new Login(getDriver());
         LoginObjectData dataL = loginObjectDataMap.get("dataSet_1");
         login.metodaLogin(dataL);
-        LoggerUtility.infoTest("The user logs in");
+        ChainTestListener.log("User logs in");
+        LoggerUtility.infoTest("User logs in");
         searchFunctionalityObjectDataMap = xmlReader.loadData("src/test/resources/searchFunctionalityData.xml", SearchFunctionalityObjectData.class);
         search = new Search(getDriver());
         SearchFunctionalityObjectData data = searchFunctionalityObjectDataMap.get("dataSet_A");
         search.metodaSearch(data);
-        LoggerUtility.infoTest("The user clicks on search");
+        ChainTestListener.log("User clicks on search");
+        LoggerUtility.infoTest("User clicks on search");
         //Assert
         Assert.assertTrue(search.searchResult1Text.contains(data.getSearchedBook1()));
         //Assert.assertEquals();
@@ -39,6 +43,7 @@ public class SearchFunctionalityOOPTest extends Hooks /*ShareData*/ {
         Assert.assertTrue(search.searchResult5Text.contains(data.getSearchedBook5()));
         Assert.assertTrue(search.searchResult6Text.contains(data.getSearchedBook6()));
         Assert.assertTrue(search.searchResult7Text.contains(data.getSearchedBook7()));
+        ChainTestListener.log("User sees the searched result on screen");
 
         //cautareAvansata = new CautareAvansata(getDriver(),"Pov", "3", "100");
         //cautareAvansata.metodaCautareAvansata();

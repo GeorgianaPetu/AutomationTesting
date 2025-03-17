@@ -6,6 +6,7 @@ import ProiectOOP.Pages.AddRow;
 import ProiectOOP.Pages.DeleteRow;
 import ProiectOOP.ShareDataBrowser.Hooks;
 import ProiectOOP.ShareDataBrowser.HooksTableQA;
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -22,11 +23,13 @@ public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
 
     @Test
     public void metodaTest() {
+        ChainTestListener.log("Opened with Chrome");
         /*data driven t*/ tableVinothQAObjectDataMap = xmlReader.loadData("src/test/resources/tableVinothQAData.xml", TableVinothQAObjectData.class);
         addRow = new AddRow(getDriver());
         TableVinothQAObjectData data = tableVinothQAObjectDataMap.get("dataSet_1");
         addRow.metodaAddRow(data);
-        LoggerUtility.infoTest("The user adds one row");
+        ChainTestListener.log("User adds one entry using valid credentials");
+        LoggerUtility.infoTest("User adds one entry using valid credentials");
         //Assert
         Assert.assertTrue(addRow.outputUsernameText.contains(data.getName()));
         Assert.assertTrue(addRow.outputRoleText.contains(data.getRole()));
@@ -36,7 +39,8 @@ public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
 
         TableVinothQAObjectData data2 = tableVinothQAObjectDataMap.get("dataSet_2");
         addRow.metodaAddRow(data2);
-        LoggerUtility.infoTest("The user adds one row");
+        ChainTestListener.log("User adds the second entry using valid credentials");
+        LoggerUtility.infoTest("User adds the second entry using valid credentials");
         //Assert
         Assert.assertTrue(addRow.outputUsernameText.contains(data2.getName()));
         Assert.assertTrue(addRow.outputRoleText.contains(data2.getRole()));
@@ -46,7 +50,8 @@ public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
 
         deleteRow = new DeleteRow(getDriver());
         deleteRow.metodaDeleteRow();
-        LoggerUtility.infoTest("The deletes one row");
+        ChainTestListener.log("User deletes one entry");
+        LoggerUtility.infoTest("User deletes one entry");
         //ASSERT
         WebElement outputName1 = getDriver().findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr[1]/td[2]"));
         Assert.assertTrue(outputName1.getText().contains("Vinoth R"));
