@@ -3,7 +3,6 @@ package ProiectOOP.Pages;
 import ObjectData.TableVinothQAObjectData;
 import ProiectOOP.HelperMethods.Delay;
 import ProiectOOP.HelperMethods.ElementsMethods;
-import dataBase.queries.TableVinothQA;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +23,6 @@ public class AddRow {
     String email;
     String location;
     String department;
-    TableVinothQA tableVinothQA;
     public String outputUsernameText;
     public String outputRoleText;
     public String outputEmailText;
@@ -60,7 +58,6 @@ public class AddRow {
         this.email = email;
         this.location = location;
         this.department = department;
-        tableVinothQA = new TableVinothQA();
         PageFactory.initElements(driver, this); //astfel poate sa gaseasca elementele scrise de mine cu FindBy
     }
 
@@ -120,8 +117,8 @@ public class AddRow {
 //        Assert.assertTrue(outputDepartment.getText().contains(department));
     }
 
-    public void addEntryInTable(TableVinothQAObjectData data) throws SQLException {
-        tableVinothQA.insertTableObject(data);
-    }
+//    public void addEntryInTable(TableVinothQAObjectData data) throws SQLException {
+//        tableVinothQA.insertTableObject(data);
+//    }
 
 }
