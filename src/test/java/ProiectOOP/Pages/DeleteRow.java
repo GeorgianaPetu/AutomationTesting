@@ -33,10 +33,5 @@ public class DeleteRow {
         elementsMethods.clickOnElement(checkBox1);
         elementsMethods.clickOnElement(checkBox2);
         elementsMethods.clickOnElement(deleteButton);
-//        //ASSERT
-//        WebElement outputName1 = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr[1]/td[2]"));
-//        Assert.assertTrue(outputName1.getText().contains("Vinoth R"));
-//        WebElement outputName2 = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr[2]/td[2]"));
-//        Assert.assertTrue(outputName2.getText().contains("Samuel Johnson"));
     }
 }

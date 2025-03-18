@@ -93,16 +93,16 @@ public class Search extends CommonMenu{
         delay.metodaDelaySec(2);
         elementsMethods.assertElementDisplayed(searchBar);
         elementsMethods.assertElementDisplayed(searchButton);
-        clickAndFillSearchField(data.getCuvant());         //elementsMethods.clickOnElement(searchBar);//searchBar.sendKeys(cuvant);
+        clickAndFillSearchField(data.getCuvant());
         delay.metodaDelaySec(2);
-        commonMenu.searchBar.sendKeys(Keys.ARROW_DOWN); // searchBar.sendKeys(Keys.ARROW_DOWN);
+        commonMenu.searchBar.sendKeys(Keys.ARROW_DOWN);
         commonMenu.searchBar.sendKeys(Keys.ENTER);
         clickOnSearchButton();
         elementsMethods.fillElement(sortareField, "Nume");
         sortareField.sendKeys(Keys.ENTER);
         elementsMethods.clickOnElement(afisareTipListaButton);
         scrollMethod.metodaScroll(1200);
-        //ASSERT
+        //pt ASSERT
         WebElement searchResult1 = driver.findElement(By.xpath("//*[@class='product-name t-font-heading']//*[@title='Din lumea celor care nu cuvanta']"));
         searchResult1Text = searchResult1.getText();
         scrollMethod.metodaScroll(-500);

@@ -49,7 +49,7 @@ public class AddRow {
     WebElement addRowButton;
 
 
-    public AddRow(WebDriver driver) throws SQLException {
+    public AddRow(WebDriver driver)  {
         this.driver = driver;
         this.elementsMethods = new ElementsMethods(driver);
         this.delay = new Delay(driver);
@@ -58,7 +58,7 @@ public class AddRow {
         this.email = email;
         this.location = location;
         this.department = department;
-        PageFactory.initElements(driver, this); //astfel poate sa gaseasca elementele scrise de mine cu FindBy
+        PageFactory.initElements(driver, this);
     }
 
     public String getName() {
@@ -99,7 +99,7 @@ public class AddRow {
 
         List<WebElement> listaTabelUpdated = driver.findElements(By.xpath("//*[@id=\"myTable\"]/tbody/tr"));
         int nrRand = listaTabelUpdated.size();
-        //Assert
+        //pt Assert
         WebElement outputUsername = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr[" + nrRand + "]/td[2]"));
         WebElement outputRole = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr[" + nrRand + "]/td[3]"));
         WebElement outputEmail = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr[" + nrRand + "]/td[4]"));
@@ -110,15 +110,6 @@ public class AddRow {
         outputEmailText = outputEmail.getText();
         outputLocationText = outputLocation.getText();
         outputDepartmentText = outputDepartment.getText();
-//        Assert.assertTrue(outputUsername.getText().contains(name));
-//        Assert.assertTrue(outputRole.getText().contains(role));
-//        Assert.assertTrue(outputEmail.getText().contains(email));
-//        Assert.assertTrue(outputLocation.getText().contains(location));
-//        Assert.assertTrue(outputDepartment.getText().contains(department));
+
     }
-
-//    public void addEntryInTable(TableVinothQAObjectData data) throws SQLException {
-//        tableVinothQA.insertTableObject(data);
-//    }
-
 }

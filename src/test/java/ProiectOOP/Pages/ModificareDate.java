@@ -137,11 +137,6 @@ public class ModificareDate {
         outputUsernameText = outputUsername.getText();
         outputEmailText = outputEmail.getText();
         outputTelefonText = outputTelefon.getText();
-
-        //assert
-//        Assert.assertTrue(outputUsername.getText().contains(nume + " " + prenume));
-//        Assert.assertTrue(outputEmail.getText().contains(email));
-//        Assert.assertTrue(outputTelefon.getText().contains(telefon));
     }
 
 }

@@ -46,22 +46,12 @@ public class SchimbareParola {
         PageFactory.initElements(driver, this);
     }
 
-//    @FindBy(xpath = "//*[@id='middle-column']//*[@class='notice danger']")
-//    WebElement outputSuccess;
-
-//    public void fillFirstRegion(ChangePasswordObjectData data){
-//        elementsMethods.fillElement(oldPassField, data.getOldPass());
-//        elementsMethods.fillElement(newPassField, data.getNewPass());
-//        elementsMethods.fillElement(confNewPassField, data.getPassChangeSuccess());
-//    }
-
     public String getPassChangeSuccess() {
         return passChangeSuccess;
     }
 
-    public void metodaSchimbareParola(ChangePasswordObjectData data) { /*String oldPass, String newPass, String passChangeSuccess*/
-//        String passChangeSuccess = "Parola a fost modificata";
-        this.passChangeSuccess = data.getPassChangeSuccess(); /*passChangeSuccess*/
+    public void metodaSchimbareParola(ChangePasswordObjectData data) {
+        this.passChangeSuccess = data.getPassChangeSuccess();
         elementsMethods.assertElementDisplayed(schimbaParolaButton);
         elementsMethods.clickOnElement(schimbaParolaButton);
         delay.metodaDelaySec(2);
@@ -71,12 +61,8 @@ public class SchimbareParola {
         elementsMethods.fillElement(oldPassField, data.getOldPass());
         elementsMethods.fillElement(newPassField, data.getNewPass());
         elementsMethods.fillElement(confNewPassField, data.getNewPass());
-        //elementsMethods.assertElementNotEmpty(oldPassField, oldPass);
-        //elementsMethods.assertElementNotEmpty(newPassField, newPass);
-        //elementsMethods.assertElementNotEmpty(confNewPassField, newPass);
         elementsMethods.clickOnElement(salveazaButton);
         WebElement outputSuccess = driver.findElement(By.xpath("//*[@id='middle-column']//*[@class='notice danger']"));
         outputSuccessText = outputSuccess.getText();
-//        Assert.assertTrue(outputSuccess.getText().contains(passChangeSuccess));
     }
 }

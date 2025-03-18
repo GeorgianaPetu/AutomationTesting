@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Login extends CommonMenu {
 
-    //WebDriver driver;
     ElementsMethods elementsMethods;
     Delay delay;
     String email;

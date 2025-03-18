@@ -13,7 +13,7 @@ import xmlReaderUtility.xmlReader;
 
 import java.util.Map;
 
-public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
+public class UpdateAccountOOPTest extends Hooks {
     Login login;
     Delay delay;
     ModificareDate modificareDate;
@@ -23,21 +23,21 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
     @Test
     public void metodaTest() {
         ChainTestListener.log("Opened with Chrome");
-        /*data driven t*/ loginObjectDataMap = xmlReader.loadData("src/test/resources/loginData.xml", LoginObjectData.class);
+        loginObjectDataMap = xmlReader.loadData("src/test/resources/loginData.xml", LoginObjectData.class);
         login = new Login(getDriver());
         delay = new Delay(getDriver());
         LoginObjectData dataL = loginObjectDataMap.get("dataSet_1");
         login.metodaLogin(dataL);
         ChainTestListener.log("User logs in");
         LoggerUtility.infoTest("User logs in");
-        /*data driven t*/ updateAccountObjectDataMap = xmlReader.loadData("src/test/resources/updateAccountData.xml", UpdateAccountObjectData.class);
+        updateAccountObjectDataMap = xmlReader.loadData("src/test/resources/updateAccountData.xml", UpdateAccountObjectData.class);
         modificareDate = new ModificareDate(getDriver());
         UpdateAccountObjectData data = updateAccountObjectDataMap.get("dataSet_1");
         modificareDate.metodaModificareDate(data);
         delay.metodaDelaySec(2);
         ChainTestListener.log("User successfully updates information using valid credentials");
         LoggerUtility.infoTest("User successfully updates information using valid credentials");
-        //assert
+        //Assert
         Assert.assertTrue(modificareDate.outputUsernameText.contains(data.getNume() + " " + data.getPrenume()));
         Assert.assertTrue(modificareDate.outputEmailText.contains(data.getEmail()));
         Assert.assertTrue(modificareDate.outputTelefonText.contains(data.getTelefon()));
@@ -48,7 +48,7 @@ public class UpdateAccountOOPTest extends Hooks /*ShareData*/ {
         modificareDate.metodaModificareDate(data2);
         ChainTestListener.log("User successfully updates information to the initial one");
         LoggerUtility.infoTest("User successfully updates information to the initial one");
-        //assert
+        //Assert
         Assert.assertTrue(modificareDate.outputUsernameText.contains(data2.getNume() + " " + data2.getPrenume()));
         Assert.assertTrue(modificareDate.outputEmailText.contains(data2.getEmail()));
         Assert.assertTrue(modificareDate.outputTelefonText.contains(data2.getTelefon()));

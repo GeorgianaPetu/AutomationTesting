@@ -16,20 +16,18 @@ import xmlReaderUtility.xmlReader;
 import java.sql.SQLException;
 import java.util.Map;
 
-public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
+public class TableVinothQAOOPTest extends HooksTableQA {
     AddRow addRow;
     DeleteRow deleteRow;
     Delay delay;
     private Map<String, TableVinothQAObjectData> tableVinothQAObjectDataMap;
 
     @Test
-    public void metodaTest() throws SQLException {
+    public void metodaTest() {
         ChainTestListener.log("Opened with Chrome");
-        /*data driven t*/ tableVinothQAObjectDataMap = xmlReader.loadData("src/test/resources/tableVinothQAData.xml", TableVinothQAObjectData.class);
+        tableVinothQAObjectDataMap = xmlReader.loadData("src/test/resources/tableVinothQAData.xml", TableVinothQAObjectData.class);
         addRow = new AddRow(getDriver());
         TableVinothQAObjectData data = tableVinothQAObjectDataMap.get("dataSet_1");
-        //SQL
-        //addRow.addEntryInTable(data);
         addRow.metodaAddRow(data);
         ChainTestListener.log("User adds one entry using valid credentials");
         LoggerUtility.infoTest("User adds one entry using valid credentials");
@@ -41,8 +39,6 @@ public class TableVinothQAOOPTest extends HooksTableQA /*ShareDataTableQA*/ {
         Assert.assertTrue(addRow.outputDepartmentText.contains(data.getDepartment()));
 
         TableVinothQAObjectData data2 = tableVinothQAObjectDataMap.get("dataSet_2");
-        //SQL
-        //addRow.addEntryInTable(data2);
         addRow.metodaAddRow(data2);
         ChainTestListener.log("User adds the second entry using valid credentials");
         LoggerUtility.infoTest("User adds the second entry using valid credentials");
